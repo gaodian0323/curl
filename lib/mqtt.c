@@ -398,10 +398,12 @@ static void mqstate(struct connectdata *conn,
                     enum mqttstate nextstate) /* used if state == FIRST */
 {
   struct mqtt_conn *mqtt = &conn->proto.mqtt;
+#ifdef CURLDEBUG
   infof(conn->data, "%s (from %s) (next is %s)\n",
         statenames[state],
         statenames[mqtt->state],
         (state == MQTT_FIRST)? statenames[nextstate] : "");
+#endif
   mqtt->state = state;
   if(state == MQTT_FIRST)
     mqtt->nextstate = nextstate;
