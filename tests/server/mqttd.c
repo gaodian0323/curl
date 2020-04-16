@@ -485,7 +485,7 @@ static curl_socket_t mqttit(curl_socket_t fd)
   size_t remaining_length = 0;
   size_t bytes = 0; /* remaining length field size in bytes */
   char client_id[MAX_CLIENT_ID_LENGTH];
-  char *filename;
+  char *filename = (char *)"unknown";
   int testno;
 
   static const char protocol[7] = {
