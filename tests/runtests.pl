@@ -3119,9 +3119,7 @@ sub checksystem {
     logmsg ("* Port range: $minport-$maxport\n");
 
     if($verbose) {
-        logmsg "* Ports:\n";
-
-        logmsg sprintf("*   HTTP/%d ", $HTTPPORT);
+        logmsg "* Ports: ";
         logmsg sprintf("FTP/%d ", $FTPPORT);
         logmsg sprintf("FTP2/%d ", $FTP2PORT);
         logmsg sprintf("RTSP/%d ", $RTSPPORT);
@@ -3131,7 +3129,6 @@ sub checksystem {
         }
         logmsg sprintf("\n*   TFTP/%d ", $TFTPPORT);
         if($http_ipv6) {
-            logmsg sprintf("HTTP-IPv6/%d ", $HTTP6PORT);
             logmsg sprintf("RTSP-IPv6/%d ", $RTSP6PORT);
         }
         if($ftp_ipv6) {
@@ -3139,10 +3136,6 @@ sub checksystem {
         }
         if($tftp_ipv6) {
             logmsg sprintf("TFTP-IPv6/%d ", $TFTP6PORT);
-        }
-        logmsg sprintf("\n*   GOPHER/%d ", $GOPHERPORT);
-        if($gopher_ipv6) {
-            logmsg sprintf("GOPHER-IPv6/%d", $GOPHER6PORT);
         }
         logmsg sprintf("\n*   SSH/%d ", $SSHPORT);
         logmsg sprintf("SOCKS/%d ", $SOCKSPORT);
