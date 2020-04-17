@@ -3240,15 +3240,7 @@ sub subVariables {
     $$thing =~ s/${prefix}SRCDIR/$srcdir/g;
     $$thing =~ s/${prefix}USER/$USER/g;
 
-    if($$thing =~ /${prefix}SSHSRVMD5/) {
-        if(!$SSHSRVMD5) {
-            my $msg = "Fatal: Missing SSH server pubkey MD5.";
-            logmsg "$msg\n";
-            stopservers($verbose);
-            die $msg;
-        }
-        $$thing =~ s/${prefix}SSHSRVMD5/$SSHSRVMD5/g;
-    }
+    $$thing =~ s/${prefix}SSHSRVMD5/$SSHSRVMD5/g;
 
     # The purpose of FTPTIME2 and FTPTIME3 is to provide times that can be
     # used for time-out tests and that would work on most hosts as these
