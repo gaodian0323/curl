@@ -2102,7 +2102,7 @@ int main(int argc, char *argv[])
       logmsg("getsockname() failed with error: (%d) %s",
              error, strerror(error));
       sclose(sock);
-      return CURL_SOCKET_BAD;
+      goto sws_cleanup;
     }
     switch(localaddr.sa.sa_family) {
     case AF_INET:
@@ -2123,7 +2123,7 @@ int main(int argc, char *argv[])
       logmsg("proper network library linkage. This might not be the only");
       logmsg("reason, but double check it before anything else.");
       sclose(sock);
-      return CURL_SOCKET_BAD;
+      goto sws_cleanup;
     }
   }
 #ifdef USE_UNIX_SOCKETS
