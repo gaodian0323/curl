@@ -156,7 +156,7 @@ my $SMBPORT;             # SMB server port
 my $SMBSPORT;            # SMBS server port
 my $NEGTELNETPORT;       # TELNET server port with negotiation
 
-my $SSHSRVMD5;           # MD5 of ssh server public key
+my $SSHSRVMD5 = "[uninitialized]"; # MD5 of ssh server public key
 
 my $srcdir = $ENV{'srcdir'} || '.';
 my $CURL="../src/curl".exe_ext('TOOL'); # what curl executable to run on the tests
@@ -4455,7 +4455,7 @@ sub singletest {
             $ok .= "v";
         }
         else {
-            if(!$short && !$disablevalgrind) {
+            if($verbose && !$disablevalgrind) {
                 logmsg " valgrind SKIPPED\n";
             }
             $ok .= "-"; # skipped
